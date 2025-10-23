@@ -33,19 +33,14 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,    	 NULL,	     0,       	   1, 	      	-1 },
-	
-	/* Startup programs in workspace 1 */
-	{ "kitty", "startup_ff",    NULL, 1 << 0, 0, -1 },
-	{ "kitty", "startup_cmatrix", NULL, 1 << 0, 0, -1 },
-	{ "kitty", "startup_btop", NULL, 1 << 0, 0, -1 },
-
-	/* Default Kitty in workspace 2 */
-	{ "kitty", "defaultterm", NULL, 1 << 1, 0, -1 },
- 	{ "firefox",  NULL,	 NULL,       1 << 2,       0,           -1 }, /* workspace 3 */
+     { "kitty",   "ff_term",      NULL,  1 << 0,    1,        -1 },
+    { "kitty",   "cmatrix_term", NULL,  1 << 0,    1,        -1 },
+    { "kitty",   "btop_term",    NULL,  1 << 0,    1,        -1 },
+ 	{ "firefox",  NULL,	     NULL,         1 << 2, 0, -1 }, /* workspace 3 */
 	/* Kitty with tmux in workspace 9 */
-	{ "KittyTmux", NULL, NULL, 1 << 8, 0, -1 },
+	{ "KittyTmux",NULL,      NULL,         1 << 8, 0, -1 },
 
-};
+};  
 
 /* layout(s) */
 static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
@@ -53,6 +48,8 @@ static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
 static const int refreshrate = 120;  /* refresh rate (per second) for client move/resize */
+/* forward declaration for layouts */
+void tile(Monitor *m);
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
