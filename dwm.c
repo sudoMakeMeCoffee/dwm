@@ -1092,6 +1092,34 @@ manage(Window w, XWindowAttributes *wa)
 	} else {
 		c->mon = selmon;
 		applyrules(c);
+
+        /* Force floating for our specific terminals */
+        XClassHint ch = {NULL, NULL};
+        if (XGetClassHint(dpy, w, &ch)) {
+            if (ch.res_name) {
+                if (!strcmp(ch.res_name, "ff_term")) {
+                    c->isfloating = 1;
+                    c->x = 2000;
+                    c->y = 800;
+                    c->w = 1500;
+                    c->h = 700;
+                } else if (!strcmp(ch.res_name, "cmatrix_term")) {
+                    c->isfloating = 1;
+                    c->x = 950;
+                    c->y = 100;
+                    c->w = 800;
+                    c->h = 400;
+                } else if (!strcmp(ch.res_name, "btop_term")) {
+                    c->isfloating = 1;
+                    c->x = 500;
+                    c->y = 500;
+                    c->w = 800;
+                    c->h = 500;
+                }
+            }
+            if (ch.res_name) XFree(ch.res_name);
+            if (ch.res_class) XFree(ch.res_class);
+        }
 	}
 
 	if (c->x + WIDTH(c) > c->mon->wx + c->mon->ww)
