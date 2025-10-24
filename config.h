@@ -13,14 +13,13 @@ static const char *fonts[] = {
 
 static const char dmenufont[]       = "FiraCode Nerd Font:size=15";
 static const char col_gray1[]       = "#1e1e2e"; // background
-static const char col_gray2[]       = "#A1FFD9"; // unfocused window border
-static const char col_gray3[]       = "#08FB98"; // text
+static const char col_secondary[]       = "#A1FFD9"; // unfocused window border
+static const char col_primary[]       = "#08FB98"; // text
 static const char col_gray4[]       = "#1e1e2e"; // bar background
-static const char col_cyan[]        = "#08FB98"; // focused window border
 static const char *colors[][3]      = {
         /*               fg         bg         border   */
-        [SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-        [SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+        [SchemeNorm] = { col_primary, col_gray1, col_secondary },
+        [SchemeSel]  = { col_gray4, col_primary,  col_secondary  },
 };
 
 /* tagging */
@@ -75,7 +74,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_primary, "-sb", col_primary, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 
 static const char *browser[] = { "firefox", NULL };
