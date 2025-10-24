@@ -7,24 +7,24 @@ static const unsigned int snap      = 32;
 static const int showbar            = 1;
 static const int topbar             = 1;
 static const char *fonts[] = {
-    "FiraCode Nerd Font Bold:size=10",          // main font
+    "FiraCode Nerd Font:size=13:antialias=true:autohint=true",          // main font
     "Noto Color Emoji:size=10"             // emoji (match main font size)
 };
 
-static const char dmenufont[]       = "JetBrainsMono Nerd Font:size=10";
+static const char dmenufont[]       = "FiraCode Nerd Font:size=15";
 static const char col_gray1[]       = "#1e1e2e"; // background
-static const char col_gray2[]       = "#313244"; // unfocused window border
-static const char col_gray3[]       = "#FF3F7F"; // text
+static const char col_gray2[]       = "#A1FFD9"; // unfocused window border
+static const char col_gray3[]       = "#08FB98"; // text
 static const char col_gray4[]       = "#1e1e2e"; // bar background
-static const char col_cyan[]        = "#9E95E3"; // focused window border
+static const char col_cyan[]        = "#08FB98"; // focused window border
 static const char *colors[][3]      = {
         /*               fg         bg         border   */
         [SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-        [SchemeSel]  = { col_gray4, col_cyan,  "#FF3F7F"  },
+        [SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
 };
 
 /* tagging */
-static const char *tags[] = { "", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "", "󰞷 ", "3", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -34,8 +34,12 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,    	 NULL,	     0,       	   1, 	      	-1 },
      { "kitty",   "ff_term",      NULL,  1 << 0,    1,        -1 },
-    { "kitty",   "cmatrix_term", NULL,  1 << 0,    1,        -1 },
-    { "kitty",   "btop_term",    NULL,  1 << 0,    1,        -1 },
+    { "kitty",   "rsclock_term",    NULL,  1 << 0,    1,        -1 },
+    { "kitty",   "ncmpcpp_term",    NULL,  1 << 0,    1,        -1 },
+    { "kitty",   "htop_term",    NULL,  1 << 0,    1,        -1 },
+    { "kitty",   "cava_term",    NULL,  1 << 0,    1,        -1 },
+
+    { "KittyWS2",   NULL,    NULL,  1 << 1,    0,        -1 },
  	{ "firefox",  NULL,	     NULL,         1 << 2, 0, -1 }, /* workspace 3 */
 	/* Kitty with tmux in workspace 9 */
 	{ "KittyTmux",NULL,      NULL,         1 << 8, 0, -1 },

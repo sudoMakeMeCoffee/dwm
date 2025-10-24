@@ -1099,23 +1099,40 @@ manage(Window w, XWindowAttributes *wa)
             if (ch.res_name) {
                 if (!strcmp(ch.res_name, "ff_term")) {
                     c->isfloating = 1;
-                    c->x = 2000;
-                    c->y = 800;
-                    c->w = 1500;
-                    c->h = 700;
-                } else if (!strcmp(ch.res_name, "cmatrix_term")) {
+                    c->x = 234;
+                    c->y = 431;
+                    c->w = 1973;
+                    c->h = 763;
+                } 
+                else if (!strcmp(ch.res_name, "ncmpcpp_term")) {
                     c->isfloating = 1;
-                    c->x = 950;
-                    c->y = 100;
-                    c->w = 800;
-                    c->h = 400;
-                } else if (!strcmp(ch.res_name, "btop_term")) {
+                    c->x = 186;
+                    c->y = 61;
+                    c->w = 1216;
+                    c->h = 332;
+                } 
+                else if (!strcmp(ch.res_name, "cava_term")) {
                     c->isfloating = 1;
-                    c->x = 500;
-                    c->y = 500;
-                    c->w = 800;
-                    c->h = 500;
+                    c->x = 1438;
+                    c->y = 210;
+                    c->w = 988;
+                    c->h = 182;
                 }
+                else if (!strcmp(ch.res_name, "htop_term")) {
+                    c->isfloating = 1;
+                    c->x = 0;
+                    c->y = 1238;
+                    c->w = 1700;
+                    c->h = 358;
+                }
+                else if (!strcmp(ch.res_name, "rsclock_term")) {
+                    c->isfloating = 1;
+                    c->x = 1811;
+                    c->y = 1262;
+                    c->w = 625;
+                    c->h = 264;
+                }
+
             }
             if (ch.res_name) XFree(ch.res_name);
             if (ch.res_class) XFree(ch.res_class);
