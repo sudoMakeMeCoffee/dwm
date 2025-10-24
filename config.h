@@ -19,7 +19,7 @@ static const char col_gray4[]       = "#1e1e2e"; // bar background
 static const char *colors[][3]      = {
         /*               fg         bg         border   */
         [SchemeNorm] = { col_primary, col_gray1, col_secondary },
-        [SchemeSel]  = { col_gray4, col_primary,  col_secondary  },
+        [SchemeSel]  = { col_gray4, col_primary,  col_primary},
 };
 
 /* tagging */
@@ -124,7 +124,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_f,      spawn,          {.v = filemgr } },
 	{ MODKEY|ShiftMask,             XK_e,      spawn,          {.v = editor } },
 	{ MODKEY|ShiftMask, XK_Return, spawn, {.v = kittycmd } },
-
+    { MODKEY|ShiftMask, XK_l, spawn, SHCMD("~/.local/bin/lock.sh") },
 
 /* Volume control */
 {0, XF86XK_AudioRaiseVolume, spawn,
